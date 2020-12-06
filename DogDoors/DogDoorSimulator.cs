@@ -9,10 +9,11 @@ namespace DogDoors
         public static void Main(string[] args)
         {
             DogDoor door = new DogDoor();
+            BarkRecognizer recognizer = new BarkRecognizer(door);
             Remote remote = new Remote(door);
 
-            Console.WriteLine("Fido barks to go outside...");
-            remote.PressButton();
+            Console.WriteLine("Fido starts barking...");
+            recognizer.Recognize("Woof");
 
             Console.WriteLine("\nFido has gone outside...");
             Console.WriteLine("\nFido's all done...");
@@ -26,8 +27,7 @@ namespace DogDoors
             Console.WriteLine("...but he's stuck outside!");
 
             Console.WriteLine("\nFido starts barking...");
-            Console.WriteLine("...so Gina grabs the remote control.");
-            remote.PressButton();
+            recognizer.Recognize("Woof");
 
             Console.WriteLine("\nFido's back inside...");
 
